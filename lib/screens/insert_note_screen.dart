@@ -9,7 +9,7 @@ class InsertNoteScreen extends StatelessWidget {
       appBar: AppBar(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
         backgroundColor: Colors.pinkAccent[500],
-        centerTitle: true,
+        //centerTitle: true,
         title:
             Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
           Text(
@@ -19,7 +19,7 @@ class InsertNoteScreen extends StatelessWidget {
               color: Colors.white,
             ),
           ),
-          IconButton(onPressed: () {}, icon: Icon(Icons.note_add))
+          IconButton(onPressed: () {}, icon: Icon(Icons.done_all_sharp))
         ]),
       ),
       body: Padding(
@@ -29,7 +29,7 @@ class InsertNoteScreen extends StatelessWidget {
             TextFormField(
               decoration: InputDecoration(
                 icon: CircleAvatar(child: Icon(Icons.add),
-                backgroundColor: Colors.pink[100],),
+                backgroundColor: Theme.of(context).accentColor,),
                 hintText: "Title",
               ),
             ),
