@@ -12,7 +12,7 @@ class InsertNoteScreen extends StatelessWidget {
         //centerTitle: true,
         title:
             Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-          Text(
+          const Text(
             "Add Your Note ",
             style: TextStyle(
               fontSize: 20,
@@ -22,23 +22,32 @@ class InsertNoteScreen extends StatelessWidget {
           IconButton(onPressed: () {}, icon: Icon(Icons.done_all_sharp))
         ]),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(15.0),
-        child: Column(
-          children: [
-            TextFormField(
-              decoration: InputDecoration(
-                icon: CircleAvatar(child: Icon(Icons.add),
-                backgroundColor: Theme.of(context).accentColor,),
-                hintText: "Title",
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(15.0),
+          child: Column(
+            children: [
+              TextField(
+                decoration: InputDecoration(
+                  fillColor: Colors.pink[50],
+                  hintText: "Title",
+                ),
               ),
-            ),
-          ],
+              SizedBox(height: 50),
+              TextField(
+                maxLines: 25,
+                decoration: InputDecoration(
+                  hintText: "Enter your note",
+                  fillColor: Colors.pink[50],
+                  filled: true,
+                ),
+              )
+            ],
+          ),
         ),
       ),
-      floatingActionButton: FloatingActionButton.extended(
-          onPressed: () {},
-          label: Text("Done")),
+      floatingActionButton:
+          FloatingActionButton.extended(onPressed: () {}, label: Text("Done")),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
