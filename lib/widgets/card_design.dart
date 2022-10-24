@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 
+import '../modals/note.dart';
+
 class CardDesign extends StatelessWidget {
-  const CardDesign({Key? key}) : super(key: key);
+
+  Note note;
+
+  CardDesign(this.note);
 
   @override
   Widget build(BuildContext context) {
@@ -12,8 +17,8 @@ class CardDesign extends StatelessWidget {
         color: Colors.pinkAccent[50],
         child: Column(
           children: [
-            Text("Title here"),
-            Text(("Notes here")),
+            Text(note.title),
+            Text(note.description??"No description"),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [Icon(Icons.note_alt_rounded), Text("06/06/2022")],

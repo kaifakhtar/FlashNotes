@@ -23,9 +23,10 @@ class QueryMiddle {
   //   await dbhelper.update(updatedRow);
   // }
   //
-  void queryAll() async {
+  Future<List<Map<String, dynamic>>?> queryAll() async {
     List<Map<String, dynamic>>? querylist =await dbhelper.queryAll();
-    print(querylist);
+    return querylist;
+   // print(querylist);
   }
 
   // void _delete(int id) async {

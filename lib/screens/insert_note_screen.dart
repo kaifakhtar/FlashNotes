@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import '../modals/note.dart';
 import './query_screen.dart';
@@ -53,13 +54,13 @@ class InsertNoteScreen extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton.extended(
           onPressed: () =>
-              _insertNote(titleController.text, descController.text),
+              _insertNote(titleController.text, descController.text,context),
           label: Text("Done")),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 
-  void _insertNote(String title, String desc) {
+  void _insertNote(String title, String desc,BuildContext context) {
     //pass row map to query_screen.dart then to database_helper
     Note note = Note(title: title, description: desc);
     Map<String, dynamic> noteMap = note.toJson();
@@ -67,5 +68,6 @@ class InsertNoteScreen extends StatelessWidget {
     queryMiddle.insert(noteMap);
 
     queryMiddle.queryAll();
+    Navigator.pushNamedAndRemoveUntil(context, '/', (route) => false);
   }
 }

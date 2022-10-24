@@ -12,6 +12,6 @@ void main() {
     ),
       routes: {
         '/':(context)=>NotesDisplayScreen(),
-        //'/query':(context)=>QueryMiddle()
+        '/insertNote':(context)=>InsertNoteScreen()
       },));
 }
