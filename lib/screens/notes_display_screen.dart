@@ -24,10 +24,16 @@ class _NotesDisplayScreenState extends State<NotesDisplayScreen> {
     List<Map<String, dynamic>>? response =
         await queryMiddle.queryAll(); // returns list of maps ie rows
     notes = response!.map((e) => Note.fromJson(e)).toList();
-    print(notes);
-    setState(() {
-    });
+    //print(notes);
+    updateNoteDisplayScreen();
   }
+
+  void _deleteNote(int id) {
+      QueryMiddle queryMiddle=QueryMiddle();
+       queryMiddle.delete(id);
+      updateNoteDisplayScreen();
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -36,21 +42,23 @@ class _NotesDisplayScreenState extends State<NotesDisplayScreen> {
         appBar: AppBar(
           title: Text("Your Notes"),
         ),
-        body: notes == null
-            ? Center(child: CircularProgressIndicator())
+        body: (notes == null)||(notes!.isEmpty)
+            ? Center(child: Text("Add Note",style: TextStyle(fontSize: 40),))
             : ListView.builder(
                 itemCount: notes!.length,
                 itemBuilder: (context, index) {
-                  return CardDesign(notes![index]);
+                  return CardDesign(notes![index],_deleteNote);
                 }),
         floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            Navigator.of(context)
-                .pushNamed("/insertNote")
-                .then((value) => setState(() {}));
-          },
+          onPressed: () async{
+           bool? result=await Navigator.push(context, MaterialPageRoute(builder: (context)=>InsertNoteScreen()));
+           if(result==true){updateNoteDisplayScreen();}},
           child: Icon(Icons.add),
-        ),
+          ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat);
   }
-}
+
+  void updateNoteDisplayScreen() {
+          setState((){});}
+  }
+

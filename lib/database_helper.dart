@@ -8,7 +8,7 @@ class DatabaseHelper {
   static final _dbVersion = 1;
   static final _tableName = 'myTable';
   static  Database? _database;
-  static final columnId = '_id';
+  static final columnId = 'id';
   static final columnTitle = 'title';
   static final columnDesc = 'description';
   //static final columnDateTime = 'dateTime';
@@ -35,7 +35,7 @@ class DatabaseHelper {
   Future _onCreate(Database db, int version) async {
     await db.execute(
         '''
-        CREATE TABLE $_tableName( $columnId INTEGER PRIMARY KEY,
+        CREATE TABLE $_tableName( $columnId INTEGER PRIMARY KEY AUTOINCREMENT,
         $columnTitle TEXT NOT NULL,
         $columnDesc TEXT
         )

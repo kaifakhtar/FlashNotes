@@ -25,12 +25,13 @@ class QueryMiddle {
   //
   Future<List<Map<String, dynamic>>?> queryAll() async {
     List<Map<String, dynamic>>? querylist =await dbhelper.queryAll();
+    //print(querylist);
     return querylist;
-   // print(querylist);
+
   }
 
-  // void _delete(int id) async {
-  //   await dbhelper.delete(id);
-  //   id++;
-  // }
+  void delete(int id) async {
+    await dbhelper.delete(id);
+    print("Successfully deleted");
+  }
 }

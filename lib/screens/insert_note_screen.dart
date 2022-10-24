@@ -62,12 +62,12 @@ class InsertNoteScreen extends StatelessWidget {
 
   void _insertNote(String title, String desc,BuildContext context) {
     //pass row map to query_screen.dart then to database_helper
-    Note note = Note(title: title, description: desc);
+    Note note = Note.withId(title: title, description: desc);
     Map<String, dynamic> noteMap = note.toJson();
     QueryMiddle queryMiddle = QueryMiddle(); // returns a map
     queryMiddle.insert(noteMap);
 
     queryMiddle.queryAll();
-    Navigator.pushNamedAndRemoveUntil(context, '/', (route) => false);
+    Navigator.pop(context,true);
   }
 }
