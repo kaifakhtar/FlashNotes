@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import '../modals/note.dart';
+import './query_screen.dart';
 
 class InsertNoteScreen extends StatelessWidget {
-  const InsertNoteScreen({Key? key}) : super(key: key);
+  final titleController = TextEditingController();
+  final descController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -28,6 +31,7 @@ class InsertNoteScreen extends StatelessWidget {
           child: Column(
             children: [
               TextField(
+                controller: titleController,
                 decoration: InputDecoration(
                   fillColor: Colors.pink[50],
                   hintText: "Title",
@@ -35,6 +39,7 @@ class InsertNoteScreen extends StatelessWidget {
               ),
               SizedBox(height: 50),
               TextField(
+                controller: descController,
                 maxLines: 25,
                 decoration: InputDecoration(
                   hintText: "Enter your note",
@@ -46,10 +51,21 @@ class InsertNoteScreen extends StatelessWidget {
           ),
         ),
       ),
-      floatingActionButton:
-          FloatingActionButton.extended(onPressed: () {}, label: Text("Done")),
+      floatingActionButton: FloatingActionButton.extended(
+          onPressed: () =>
+              _insertNote(titleController.text, descController.text),
+          label: Text("Done")),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
+
+  void _insertNote(String title, String desc) {
+    //pass row map to query_screen.dart then to database_helper
+    Note note = Note(title: title, description: desc);
+    Map<String, dynamic> noteMap = note.toJson();
+    QueryMiddle queryMiddle = QueryMiddle(); // returns a map
+    queryMiddle.insert(noteMap);
+
+    queryMiddle.queryAll();
+  }
 }
-// TODO to add 2 text input fields

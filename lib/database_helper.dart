@@ -9,7 +9,10 @@ class DatabaseHelper {
   static final _tableName = 'myTable';
   static  Database? _database;
   static final columnId = '_id';
-  static final columnName = 'name'; // TODO define more column name
+  static final columnTitle = 'title';
+  static final columnDesc = 'description';
+  //static final columnDateTime = 'dateTime';
+  // TODO define more column name
 
   DatabaseHelper._privateConstructor();
 
@@ -33,7 +36,9 @@ class DatabaseHelper {
     await db.execute(
         '''
         CREATE TABLE $_tableName( $columnId INTEGER PRIMARY KEY,
-        $columnName TEXT NOT NULL)
+        $columnTitle TEXT NOT NULL,
+        $columnDesc TEXT
+        )
         '''
     );
   }

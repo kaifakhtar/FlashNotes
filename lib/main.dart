@@ -10,6 +10,6 @@ void main() {
     ),
       routes: {
         '/':(context)=>InsertNoteScreen(),
-        '/query':(context)=>QueryScreen()
+        //'/query':(context)=>QueryMiddle()
       },));
 }
