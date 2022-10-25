@@ -6,6 +6,7 @@ import 'screens/insert_note_screen.dart';
 import 'screens/query_screen.dart';
 void main() {
   runApp(MaterialApp(
+    debugShowCheckedModeBanner: false,
     theme: ThemeData(
         primarySwatch: Colors.pink,
           accentColor: Colors.pink[100]

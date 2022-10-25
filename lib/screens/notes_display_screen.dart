@@ -39,40 +39,44 @@ class _NotesDisplayScreenState extends State<NotesDisplayScreen> {
   @override
   Widget build(BuildContext context) {
     initNotes();
-    return SafeArea(
-      child: Scaffold(
-          body: Padding(
+    return Scaffold(
+        body: SafeArea(
+          child: Padding(
             padding: const EdgeInsets.only(top: 8.0),
             child: Column(
               children: [
                 MyAppbar(),
-                SizedBox(height: 15,),
+                SizedBox(
+                  height: 15,
+                ),
                 (notes == null) || (notes!.isEmpty)
                     ? NoNoteBanner()
-                    : Container(
-                  height: 600,
-                      child: ListView.builder(
-                          itemCount: notes!.length,
-                          itemBuilder: (context, index) {
-                            return CardDesign(notes![index], _deleteNote);
-                          }),
-                    ),
+                    : Expanded(
+                        child: Container(
+                          height: 600,
+                          child: ListView.builder(
+                              itemCount: notes!.length,
+                              itemBuilder: (context, index) {
+                                return CardDesign(notes![index], _deleteNote);
+                              }),
+                        ),
+                      ),
               ],
             ),
           ),
-          floatingActionButton: FloatingActionButton(
-            onPressed: () async {
-              bool? result = await Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => InsertNoteScreen()));
-              if (result == true) {
-                updateNoteDisplayScreen();
-              }
-            },
-            child: Icon(Icons.add),
-          ),
-          floatingActionButtonLocation:
-              FloatingActionButtonLocation.centerFloat),
-    );
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () async {
+            bool? result = await Navigator.push(context,
+                MaterialPageRoute(builder: (context) => InsertNoteScreen()));
+            if (result == true) {
+              updateNoteDisplayScreen();
+            }
+          },
+          child: Icon(Icons.add),
+        ),
+        floatingActionButtonLocation:
+            FloatingActionButtonLocation.centerFloat);
   }
 
   void updateNoteDisplayScreen() {
