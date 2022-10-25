@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:kins_c/screens/insert_note_screen.dart';
 import 'package:kins_c/widgets/card_design.dart';
@@ -20,6 +22,8 @@ class _NotesDisplayScreenState extends State<NotesDisplayScreen> {
   // //   super.initState();
   // //   initNotes();
   // // }
+
+
 
   void initNotes() async {
     QueryMiddle queryMiddle = new QueryMiddle();
@@ -52,13 +56,18 @@ class _NotesDisplayScreenState extends State<NotesDisplayScreen> {
                 (notes == null) || (notes!.isEmpty)
                     ? NoNoteBanner()
                     : Expanded(
-                        child: Container(
-                          height: 600,
-                          child: ListView.builder(
-                              itemCount: notes!.length,
-                              itemBuilder: (context, index) {
-                                return CardDesign(notes![index], _deleteNote);
-                              }),
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                          child: Container(
+                            height: 600,
+                            child: GridView.builder(
+                               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2,crossAxisSpacing: 10),
+                                itemCount: notes!.length,
+                                itemBuilder: (context, index) {
+
+                                  return CardDesign(notes![index], _deleteNote);
+                                }),
+                          ),
                         ),
                       ),
               ],
