@@ -12,12 +12,37 @@ class ChipsPriority extends StatelessWidget {
       children: [
         Container(
           child: Padding(
-            padding:  EdgeInsets.symmetric(vertical: screenHeight*0.01, horizontal: screenHeight*0.03),
-            child: Text("Important",style: GoogleFonts.montserrat(color: Colors.grey[100]),),
+            padding:  EdgeInsets.symmetric(vertical: screenHeight*0.01, horizontal: screenHeight*0.02),
+            child: Text("Important",style: GoogleFonts.montserrat(color: Colors.black),),
           ),
           decoration: BoxDecoration(
-              color: Colors.pink,
+            border: Border.all(),
+            //  color: Colors.pink,
             borderRadius: BorderRadius.circular(screenHeight*0.06)
+          ),
+
+        ),
+        Container(
+          child: Padding(
+            padding:  EdgeInsets.symmetric(vertical: screenHeight*0.01, horizontal: screenHeight*0.03),
+            child: Text("Important",style: GoogleFonts.montserrat(color: Colors.black),),
+          ),
+          decoration: BoxDecoration(
+              border: Border.all(),
+
+              borderRadius: BorderRadius.circular(screenHeight*0.06)
+          ),
+
+        ),
+        Container(
+          child: Padding(
+            padding:  EdgeInsets.symmetric(vertical: screenHeight*0.01, horizontal: screenHeight*0.03),
+            child: Text("Important",style: GoogleFonts.montserrat(color: Colors.black),),
+          ),
+          decoration: BoxDecoration(
+              border: Border.all(),
+
+              borderRadius: BorderRadius.circular(screenHeight*0.06)
           ),
 
         )
