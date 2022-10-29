@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:kins_c/screens/insert_note_screen.dart';
 import 'package:kins_c/widgets/card_design.dart';
 import 'package:kins_c/widgets/no_note_display.dart';
@@ -43,6 +44,9 @@ int ind =0;
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+      systemNavigationBarColor: Colors.grey[200],
+    ));
     initNotes();
     return Scaffold(
       backgroundColor: Color(0xFFfcfcfc),

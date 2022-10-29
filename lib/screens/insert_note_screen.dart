@@ -1,6 +1,7 @@
 import 'dart:ffi';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:kins_c/widgets/chips_importance_row.dart';
 import 'package:kins_c/widgets/desc_card_design.dart';
@@ -21,6 +22,7 @@ class _InsertNoteScreenState extends State<InsertNoteScreen> {
 
   @override
   Widget build(BuildContext context) {
+
     var height = (MediaQuery.of(context).size.height -
         MediaQuery.of(context).padding.top);
     return Scaffold(
