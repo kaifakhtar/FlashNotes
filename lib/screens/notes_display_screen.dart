@@ -15,7 +15,8 @@ class NotesDisplayScreen extends StatefulWidget {
 
 class _NotesDisplayScreenState extends State<NotesDisplayScreen> {
   List<Note>? notes;
-
+  final List<Color> cardColorsList = [const Color(0xFFffe9ad),const Color(0xFFeaffd9),const Color(0xFFfae0cf)];
+int ind =0;
   // @override
   // // void initState() {
   // //   // TODO: implement initState
@@ -44,28 +45,31 @@ class _NotesDisplayScreenState extends State<NotesDisplayScreen> {
   Widget build(BuildContext context) {
     initNotes();
     return Scaffold(
+      backgroundColor: Color(0xFFfcfcfc),
         body: SafeArea(
           child: Padding(
             padding: const EdgeInsets.only(top: 8.0),
             child: Column(
               children: [
                 MyAppbar(),
-                SizedBox(
+                const SizedBox(
                   height: 15,
                 ),
                 (notes == null) || (notes!.isEmpty)
                     ? NoNoteBanner()
                     : Expanded(
                         child: Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                          padding: const EdgeInsets.symmetric(horizontal: 20.0),
                           child: Container(
-                            height: 600,
-                            child: GridView.builder(
-                               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2,crossAxisSpacing: 10),
+                           // height: 600,
+                            child: ListView.builder(
                                 itemCount: notes!.length,
                                 itemBuilder: (context, index) {
+                                  if(ind==3){
+                                    ind=0;
+                                  }
 
-                                  return CardDesign(notes![index], _deleteNote);
+                                  return CardDesign(notes![index], _deleteNote,cardColorsList[ind++]);
                                 }),
                           ),
                         ),
@@ -75,6 +79,7 @@ class _NotesDisplayScreenState extends State<NotesDisplayScreen> {
           ),
         ),
         floatingActionButton: FloatingActionButton(
+          elevation: 8,
           onPressed: () async {
             bool? result = await Navigator.push(context,
                 MaterialPageRoute(builder: (context) => InsertNoteScreen()));
@@ -82,7 +87,7 @@ class _NotesDisplayScreenState extends State<NotesDisplayScreen> {
               updateNoteDisplayScreen();
             }
           },
-          child: Icon(Icons.add),
+          child: const Icon(Icons.add),
         ),
         floatingActionButtonLocation:
             FloatingActionButtonLocation.centerFloat);

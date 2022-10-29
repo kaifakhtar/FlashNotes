@@ -8,20 +8,24 @@ class CardDesign extends StatelessWidget {
   Note note;
   Function _deleteNote;
 
-  CardDesign(this.note, this._deleteNote);
- List<Color> colorList=[Color(0xFFD3CA00),Color(0xFFF69700)];
+   Color cardColor;
+
+  CardDesign(this.note, this._deleteNote, this.cardColor);
+ //List<Color> colorList=[const Color(0xFFD3CA00),const Color(0xFFF69700)];
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: (){},
-      child: Container(
-        margin: EdgeInsets.only(bottom: 8),
-        height: 100,
-        width: 50,
+    return Container(
+      margin: const EdgeInsets.only(bottom: 8),
+      height:  (MediaQuery.of(context).size.height-MediaQuery.of(context).padding.top)*0.7,
+      width: double.infinity,
+      child: InkWell(
+        onTap: (){},
         child: Card(
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-          color: Colors.yellow[100],
+          elevation: 0,
+          margin: const EdgeInsets.only(bottom: 20),
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+          color: Color(0xFF94c2ff),
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20.0),
             child: Row(
@@ -30,7 +34,7 @@ class CardDesign extends StatelessWidget {
                 Expanded(
                     child: Text(
                       note.title,
-                      style: GoogleFonts.merriweather(fontSize: 25),
+                      style: GoogleFonts.roboto(fontSize: 18),
                       overflow: TextOverflow.fade,
                       softWrap: true,
                       maxLines: 2,
@@ -38,7 +42,7 @@ class CardDesign extends StatelessWidget {
                   ),
                 IconButton(
                     onPressed: () => _deleteNote(note.id),
-                    icon: Icon(Icons.delete))
+                    icon: const Icon(Icons.delete))
               ],
             ),
           ),
