@@ -15,7 +15,7 @@ class InsertNoteScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     var height =(MediaQuery.of(context).size.height-MediaQuery.of(context).padding.top);
     return Scaffold(
-      backgroundColor: Color(0xFFcffdff),
+      backgroundColor: Color(0xffe5feff),
       body: SingleChildScrollView(
         child: Padding(
           padding:  EdgeInsets.symmetric(vertical:height*0.09 ,horizontal: height*0.03),
@@ -27,9 +27,9 @@ class InsertNoteScreen extends StatelessWidget {
                 border: InputBorder.none,
 
                   fillColor: Colors.pink[50],
-                  hintText: "Title",
-                  hintStyle: GoogleFonts.bebasNeue(
-                    fontSize: 50
+                  hintText: "Enter title ...",
+                  hintStyle: GoogleFonts.sourceSansPro(
+                    fontSize: 40
                   )
                 ),
                 cursorColor: Color(0xFFea59f7),
@@ -38,7 +38,7 @@ class InsertNoteScreen extends StatelessWidget {
                   color: Color(0xFF5493f7)
                 ),
               ),
-              const SizedBox(height: 50),
+              const SizedBox(height: 30), //TODO add chips in here prioroty : important, not Import etc
               // TextField(
               //   controller: descController,
               //   maxLines: 25,
@@ -48,7 +48,25 @@ class InsertNoteScreen extends StatelessWidget {
               //     filled: true,
               //   ),
               // )
+              TextField(
 
+                maxLines: 20,
+                //controller: titleController,
+                decoration: InputDecoration(
+                    border: InputBorder.none,
+
+                    fillColor: Colors.pink[50],
+                    hintText: "Your note",
+                    hintStyle: GoogleFonts.sourceSansPro(
+                        fontSize: 25
+                    )
+                ),
+                cursorColor: Color(0xFFea59f7),
+                style: GoogleFonts.lato(
+                    fontSize: 25,
+                    color: Color(0xff3d485d)
+                ),
+              ),
             ],
           ),
         ),

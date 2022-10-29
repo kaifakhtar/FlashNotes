@@ -18,7 +18,7 @@ class CardDesign extends StatelessWidget {
         MediaQuery.of(context).padding.top);
     return Container(
       margin: const EdgeInsets.only(bottom: 8),
-      height: screenHeight * 0.7,
+      height: screenHeight * 0.65,
 
       width: double.infinity,
       child: InkWell(
@@ -32,7 +32,9 @@ class CardDesign extends StatelessWidget {
           child: Padding(
             padding: EdgeInsets.symmetric(
                 horizontal: screenHeight * 0.03, vertical: screenHeight * 0.04),
-            child: Stack(children: [
+            child: Stack(
+             // alignment: Alignment.center,
+                children: [
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -46,7 +48,7 @@ class CardDesign extends StatelessWidget {
                     maxLines: 2,
                   ),
                   SizedBox(
-                    height: 20,
+                    height: screenHeight*0.03,
                   ),
                   Container(
                     decoration: BoxDecoration(
@@ -64,28 +66,35 @@ class CardDesign extends StatelessWidget {
                     ),
                   ),
                   Divider(
-                    height: screenHeight * 0.04,
+                    height: screenHeight * 0.06,
                     thickness: screenHeight * 0.001,
                     color: Colors.black,
                   ),
                   Text("hishdi"),
                   Divider(
-                    height: screenHeight * 0.04,
+                    height: screenHeight * 0.06,
                     thickness: screenHeight * 0.001,
                     color: Colors.black,
                   ),
-                  Text('Description text'),
+                  Text('I am a human and i live with amma bacha who is very gol matol and she makes food very tasty! jdrie fds g f srgws dfsdfwrgrg rgrthgh ghh dr rg fgfht hdf d gsvs gr s vfbfg sgrgfsfv fbfef sefef sgrgsdfse gscvsege sgsfdsdfs ege fgdf vfdvsdv svsdgsd fcxzs vdvsxc advdsv dbsdvs dscfsvfvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvssssssssssssssssssssssssss',
+                    maxLines:9,
+                  overflow: TextOverflow.fade,
+                  softWrap: true,
+
+                  style: GoogleFonts.ptSans(fontSize:screenHeight*0.027,height: screenHeight*0.0014 ),),
                 ],
               ),
               Positioned(
-                top: screenHeight * 0.5,
-                left: screenHeight * 0.05,
+                top: screenHeight * 0.48,
+                //left: screenHeight * 0.05,
+                //left: 0,
+                right: 0,
                 child: Row(
                   children: [
                     CircleAvatar(
-                      child: Icon(Icons.add),
+                      child: Icon(Icons.share),
                       radius: screenHeight *0.03,
-                      backgroundColor: Color(0xFFD6EBF9),
+                      backgroundColor: Color(0xD9D6EBF9),
                     ),
                     SizedBox(
                       width: screenHeight * 0.02,
@@ -93,7 +102,7 @@ class CardDesign extends StatelessWidget {
                     CircleAvatar(
                       child: Icon(Icons.favorite_border),
                       radius: screenHeight *0.03,
-                      backgroundColor: Color(0xFFD6EBF9),
+                      backgroundColor: Color(0xD9D6EBF9),
                     ),
                     SizedBox(
                       width: screenHeight * 0.02,
@@ -103,7 +112,7 @@ class CardDesign extends StatelessWidget {
                       child: CircleAvatar(
                         child: Icon(Icons.delete_outline_rounded),
                         radius: screenHeight *0.03,
-                        backgroundColor: Color(0xFFD6EBF9),
+                        backgroundColor: Color(0xD9D6EBF9),
                       ),
                     ),
                   ],
