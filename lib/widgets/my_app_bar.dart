@@ -6,6 +6,8 @@ class MyAppbar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var screenHeight = (MediaQuery.of(context).size.height -
+        MediaQuery.of(context).padding.top);
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8.0),
       child: Row(
@@ -17,18 +19,11 @@ class MyAppbar extends StatelessWidget {
                 height: (MediaQuery.of(context).size.height-MediaQuery.of(context).padding.top)*0.04,
                   decoration: BoxDecoration(
                       color: Colors.grey[300], shape: BoxShape.circle),
-                  child: Center(
-                    child: IconButton(
-                      onPressed: () {},
-                      icon: Image.asset('asset/images/menu.png'),
-                      alignment: Alignment.center,
-                    ),
-                  )),
-              const SizedBox(width: 4,),
+              ),
               Text(
                 "Flash Notes",
                 style: GoogleFonts.montserrat(
-                    fontSize: 20, fontWeight: FontWeight.bold,),
+                    fontSize: screenHeight*0.04),
               ),
             ],
           ),

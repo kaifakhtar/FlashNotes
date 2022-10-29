@@ -25,9 +25,9 @@ class CardDesign extends StatelessWidget {
         onTap: () {},
         child: Card(
           elevation: 0,
-          margin: const EdgeInsets.only(bottom: 20),
+          margin:  EdgeInsets.only(bottom: screenHeight*0.009),
           shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(screenHeight*0.035)),
           color: Color(0xFF94c2ff),
           child: Padding(
             padding: EdgeInsets.symmetric(
@@ -76,7 +76,7 @@ class CardDesign extends StatelessWidget {
                     thickness: screenHeight * 0.001,
                     color: Colors.black,
                   ),
-                  Text('I am a human and i live with amma bacha who is very gol matol and she makes food very tasty! jdrie fds g f srgws dfsdfwrgrg rgrthgh ghh dr rg fgfht hdf d gsvs gr s vfbfg sgrgfsfv fbfef sefef sgrgsdfse gscvsege sgsfdsdfs ege fgdf vfdvsdv svsdgsd fcxzs vdvsxc advdsv dbsdvs dscfsvfvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvssssssssssssssssssssssssss',
+                  Text('Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
                     maxLines:9,
                   overflow: TextOverflow.fade,
                   softWrap: true,
