@@ -52,6 +52,7 @@ class _InsertNoteScreenState extends State<InsertNoteScreen> {
 
               TextField(
                 maxLines: 20,
+                controller:descController ,
                 //controller: titleController,
                 decoration: InputDecoration(
                     border: InputBorder.none,
@@ -77,12 +78,14 @@ class _InsertNoteScreenState extends State<InsertNoteScreen> {
 
   void _insertNote(String title, String desc, BuildContext context) {
     //pass row map to query_screen.dart then to database_helper
-    Note note = Note.withId(title: title, description: desc);
-    Map<String, dynamic> noteMap = note.toJson();
-    QueryMiddle queryMiddle = QueryMiddle(); // returns a map
-    queryMiddle.insert(noteMap);
 
-    queryMiddle.queryAll();
+    if(!(title.isEmpty&&desc.isEmpty)) {
+      Note note = Note.withId(title: title, description: desc);
+      Map<String, dynamic> noteMap = note.toJson();
+      QueryMiddle queryMiddle = QueryMiddle(); // returns a map
+      queryMiddle.insert(noteMap);
+    }
+    //queryMiddle.queryAll();
     Navigator.pop(context, true);
   }
 }
