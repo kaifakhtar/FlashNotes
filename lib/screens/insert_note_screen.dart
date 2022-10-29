@@ -13,11 +13,12 @@ class InsertNoteScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var height =(MediaQuery.of(context).size.height-MediaQuery.of(context).padding.top);
     return Scaffold(
       backgroundColor: Color(0xFFcffdff),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 40,horizontal: 20),
+          padding:  EdgeInsets.symmetric(vertical:height*0.09 ,horizontal: height*0.03),
           child: Column(
             children: [
               TextField(
@@ -27,7 +28,7 @@ class InsertNoteScreen extends StatelessWidget {
 
                   fillColor: Colors.pink[50],
                   hintText: "Title",
-                  hintStyle: GoogleFonts.lato(
+                  hintStyle: GoogleFonts.bebasNeue(
                     fontSize: 50
                   )
                 ),

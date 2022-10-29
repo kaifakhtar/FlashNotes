@@ -51,6 +51,7 @@ int ind =0;
             padding: const EdgeInsets.only(top: 8.0),
             child: Column(
               children: [
+                SizedBox(height: 10,),
                 MyAppbar(),
                 const SizedBox(
                   height: 15,
