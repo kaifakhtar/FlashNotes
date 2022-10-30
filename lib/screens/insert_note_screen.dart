@@ -3,6 +3,7 @@ import 'dart:ffi';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/intl.dart';
 import 'package:kins_c/widgets/chips_importance_row.dart';
 import 'package:kins_c/widgets/desc_card_design.dart';
 import '../modals/note.dart';
@@ -82,7 +83,7 @@ class _InsertNoteScreenState extends State<InsertNoteScreen> {
     //pass row map to query_screen.dart then to database_helper
 
     if(!(title.isEmpty&&desc.isEmpty)) {
-      Note note = Note.withId(title: title, description: desc);
+      Note note = Note.withId(title: title, description: desc,date:DateFormat('dd/MM/yyyy').format(DateTime.now()));
       Map<String, dynamic> noteMap = note.toJson();
       QueryMiddle queryMiddle = QueryMiddle(); // returns a map
       queryMiddle.insert(noteMap);

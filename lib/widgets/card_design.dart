@@ -59,7 +59,7 @@ class CardDesign extends StatelessWidget {
                           horizontal: screenHeight * 0.015,
                           vertical: screenHeight * 0.002),
                       child: Text(
-                        'King kong',
+                        note.date,
                         style: GoogleFonts.sourceSansPro(
                             fontSize: screenHeight * 0.023),
                       ),

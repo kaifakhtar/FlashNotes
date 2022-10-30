@@ -18,12 +18,7 @@ class _NotesDisplayScreenState extends State<NotesDisplayScreen> {
   List<Note>? notes;
   final List<Color> cardColorsList = [const Color(0xFFffe9ad),const Color(0xFFeaffd9),const Color(0xFFfae0cf)];
 int ind =0;
-  // @override
-  // // void initState() {
-  // //   // TODO: implement initState
-  // //   super.initState();
-  // //   initNotes();
-  // // }
+
 
 
 
@@ -44,39 +39,39 @@ int ind =0;
 
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-      systemNavigationBarColor: Colors.grey[200],
+    var screenHeight = (MediaQuery.of(context).size.height -
+        MediaQuery.of(context).padding.top);
+
+    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+      systemNavigationBarColor: Colors.grey,
     ));
     initNotes();
     return Scaffold(
       backgroundColor: Color(0xFFfcfcfc),
         body: SafeArea(
           child: Padding(
-            padding: const EdgeInsets.only(top: 8.0),
+            padding:  EdgeInsets.only(top: screenHeight*0.01),
             child: Column(
               children: [
-                SizedBox(height: 10,),
+                SizedBox(height: screenHeight*0.016,),
                 MyAppbar(),
-                const SizedBox(
-                  height: 15,
+                 SizedBox(
+                  height: screenHeight*0.018,
                 ),
                 (notes == null) || (notes!.isEmpty)
-                    ? NoNoteBanner()
+                    ? const NoNoteBanner()
                     : Expanded(
                         child: Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                          child: Container(
-                           // height: 600,
-                            child: ListView.builder(
-                                itemCount: notes!.length,
-                                itemBuilder: (context, index) {
-                                  if(ind==3){
-                                    ind=0;
-                                  }
+                          child: ListView.builder(
+                              itemCount: notes!.length,
+                              itemBuilder: (context, index) {
+                                if(ind==3){
+                                  ind=0;
+                                }
 
-                                  return CardDesign(notes![index], _deleteNote,cardColorsList[ind++]);
-                                }),
-                          ),
+                                return CardDesign(notes![index], _deleteNote,cardColorsList[ind++]);
+                              }),
                         ),
                       ),
               ],
@@ -84,7 +79,7 @@ int ind =0;
           ),
         ),
         floatingActionButton: FloatingActionButton(
-          elevation: 8,
+          elevation: screenHeight*0.02,
           onPressed: () async {
             bool? result = await Navigator.push(context,
                 MaterialPageRoute(builder: (context) => InsertNoteScreen()));
