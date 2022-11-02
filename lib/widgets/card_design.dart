@@ -69,13 +69,13 @@ class CardDesign extends StatelessWidget {
                   Divider(
                     height: screenHeight * 0.06,
                     thickness: screenHeight * 0.001,
-                    color: Colors.black,
+                    color: Colors.grey[700],
                   ),
                    Text("Priority ${note.priority}"),
                   Divider(
                     height: screenHeight * 0.06,
                     thickness: screenHeight * 0.001,
-                    color: Colors.black,
+                    color: Colors.grey[700],
 
                   ),
                   Text(note.description!.isEmpty?"No description":note.description!,

@@ -74,17 +74,18 @@ class _NotesDisplayScreenState extends State<NotesDisplayScreen> {
             ),
           ),
         ),
-        floatingActionButton: FloatingActionButton(
-          elevation: screenHeight*0.02,
-          onPressed: () async {
-            bool? result = await Navigator.push(context,
-                MaterialPageRoute(builder: (context) => InsertNoteScreen()));
-            if (result == true) {
-              updateNoteDisplayScreen();
-            }
-          },
-          child: const Icon(Icons.add),
-        ),
+        floatingActionButton:  FloatingActionButton(
+            elevation: screenHeight*0.02,
+            onPressed: () async {
+              bool? result = await Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => InsertNoteScreen()));
+              if (result == true) {
+                updateNoteDisplayScreen();
+              }
+            },
+            child: const Icon(Icons.add),
+          ),
+
         floatingActionButtonLocation:
             FloatingActionButtonLocation.centerFloat);
   }

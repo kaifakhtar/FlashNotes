@@ -3,10 +3,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
-
+import '../widgets/priority_chip.dart';
 import '../modals/note.dart';
 import './query_screen.dart';
-import '../widgets/priority_chip.dart';
+
 class InsertNoteScreen extends StatefulWidget {
   @override
   State<InsertNoteScreen> createState() => _InsertNoteScreenState();
@@ -25,7 +25,7 @@ class _InsertNoteScreenState extends State<InsertNoteScreen> {
     var height = (MediaQuery.of(context).size.height -
         MediaQuery.of(context).padding.top);
     return Scaffold(
-      backgroundColor: const Color(0xffe5feff),
+      backgroundColor: const Color(0xffffffff),
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.symmetric(
@@ -37,7 +37,7 @@ class _InsertNoteScreenState extends State<InsertNoteScreen> {
                 decoration: InputDecoration(
                     border: InputBorder.none,
                     fillColor: Colors.pink[50],
-                    hintText: "Enter title ...",
+                    hintText: "Title..",
                     hintStyle: GoogleFonts.sourceSansPro(fontSize: 40)),
                 cursorColor: const Color(0xFFea59f7),
                 style: GoogleFonts.lato(fontSize: 40, color: const Color(0xFF5493f7)),
@@ -83,7 +83,7 @@ class _InsertNoteScreenState extends State<InsertNoteScreen> {
                 decoration: InputDecoration(
                     border: InputBorder.none,
                     fillColor: Colors.pink[50],
-                    hintText: "Your note",
+                    hintText: "Your awesome note here..",
                     hintStyle: GoogleFonts.sourceSansPro(fontSize: 25)),
                 cursorColor: const Color(0xFFea59f7),
                 style: GoogleFonts.lato(fontSize: 25, color: const Color(0xff3d485d)),

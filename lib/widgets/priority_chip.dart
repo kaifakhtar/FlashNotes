@@ -18,7 +18,7 @@ class PriorityChip extends StatelessWidget {
       width: screenHeight * 0.14,
       decoration: BoxDecoration(
           color: chipColor,
-          border: Border.all(),
+          border: Border.all(width: 2),
           //  color: Colors.pink,
           borderRadius: BorderRadius.circular(screenHeight * 0.06)),
       child: Padding(
