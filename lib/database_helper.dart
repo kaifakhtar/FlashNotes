@@ -12,6 +12,7 @@ class DatabaseHelper {
   static final columnTitle = 'title';
   static final columnDesc = 'description';
   static final columnDate = 'date';
+  static final columnPriority = 'priority';
   //static final columnDateTime = 'dateTime';
   // TODO define more column name
 
@@ -39,7 +40,8 @@ class DatabaseHelper {
         CREATE TABLE $_tableName( $columnId INTEGER PRIMARY KEY AUTOINCREMENT,
         $columnTitle TEXT NOT NULL,
         $columnDesc TEXT,
-        $columnDate TEXT
+        $columnDate TEXT,
+        $columnPriority INT
         )
         '''
     );

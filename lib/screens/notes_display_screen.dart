@@ -16,8 +16,7 @@ class NotesDisplayScreen extends StatefulWidget {
 
 class _NotesDisplayScreenState extends State<NotesDisplayScreen> {
   List<Note>? notes;
-  final List<Color> cardColorsList = [const Color(0xFFffe9ad),const Color(0xFFeaffd9),const Color(0xFFfae0cf)];
-int ind =0;
+
 
 
 
@@ -54,7 +53,7 @@ int ind =0;
             child: Column(
               children: [
                 SizedBox(height: screenHeight*0.016,),
-                MyAppbar(),
+                const MyAppbar(),
                  SizedBox(
                   height: screenHeight*0.018,
                 ),
@@ -66,11 +65,8 @@ int ind =0;
                           child: ListView.builder(
                               itemCount: notes!.length,
                               itemBuilder: (context, index) {
-                                if(ind==3){
-                                  ind=0;
-                                }
 
-                                return CardDesign(notes![index], _deleteNote,cardColorsList[ind++]);
+                                return CardDesign(notes![index], _deleteNote,getChipColor(notes![index].priority));
                               }),
                         ),
                       ),
@@ -95,5 +91,15 @@ int ind =0;
 
   void updateNoteDisplayScreen() {
     setState(() {});
+  }
+  
+  Color getChipColor(priority){
+    if(priority==1){
+      return const Color(0xffecb6fd);
+    }
+    else if(priority==2){
+      return const Color(0xffe9f0b9);
+    }
+    return const Color(0xFF8fad86);
   }
 }
