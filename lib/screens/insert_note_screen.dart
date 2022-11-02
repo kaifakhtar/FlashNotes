@@ -24,6 +24,7 @@ class _InsertNoteScreenState extends State<InsertNoteScreen> {
   Widget build(BuildContext context) {
     var height = (MediaQuery.of(context).size.height -
         MediaQuery.of(context).padding.top);
+    var width = (MediaQuery.of(context).size.width);
     return Scaffold(
       backgroundColor: const Color(0xffffffff),
       body: SingleChildScrollView(
@@ -57,7 +58,7 @@ class _InsertNoteScreenState extends State<InsertNoteScreen> {
 
 
                   SizedBox(
-                    width: height * 0.023,
+                    width: width * 0.023,
                   ),
 
                   GestureDetector(
@@ -65,7 +66,7 @@ class _InsertNoteScreenState extends State<InsertNoteScreen> {
                       child: PriorityChip(selectedPriority: selectedPriority, ChipText: "Moderate",
                          chipColor: selectedPriority==2 ?const Color(0xFFf5fab1) : const Color(0x00FFFFFF))),
                   SizedBox(
-                    width: height * 0.023,
+                    width: width * 0.023,
                   ),
                   GestureDetector(
                       onTap: (){setState((){selectedPriority=3;});},
