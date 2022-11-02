@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../modals/note.dart';
 
+
 class CardDesign extends StatelessWidget {
   Note note;
   Function _deleteNote;
@@ -28,7 +29,7 @@ class CardDesign extends StatelessWidget {
           margin:  EdgeInsets.only(bottom: screenHeight*0.009),
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(screenHeight*0.035)),
-          color: Color(0xFF94c2ff),
+          color: cardColor,
           child: Padding(
             padding: EdgeInsets.symmetric(
                 horizontal: screenHeight * 0.03, vertical: screenHeight * 0.04),
@@ -52,7 +53,7 @@ class CardDesign extends StatelessWidget {
                   ),
                   Container(
                     decoration: BoxDecoration(
-                        color: Color(0xFFD6EBF9),
+                        color: const Color(0xFFD6EBF9),
                         borderRadius: BorderRadius.circular(12)),
                     child: Padding(
                       padding: EdgeInsets.symmetric(
@@ -70,7 +71,7 @@ class CardDesign extends StatelessWidget {
                     thickness: screenHeight * 0.001,
                     color: Colors.black,
                   ),
-                  Text("hishdi"),
+                   Text("Priority ${note.priority}"),
                   Divider(
                     height: screenHeight * 0.06,
                     thickness: screenHeight * 0.001,
@@ -94,17 +95,17 @@ class CardDesign extends StatelessWidget {
                 child: Row(
                   children: [
                     CircleAvatar(
-                      child: Icon(Icons.share),
+                      child: const Icon(Icons.share),
                       radius: screenHeight *0.03,
-                      backgroundColor: Color(0xD9D6EBF9),
+                      backgroundColor: const Color(0xD9D6EBF9),
                     ),
                     SizedBox(
                       width: screenHeight * 0.02,
                     ),
                     CircleAvatar(
-                      child: Icon(Icons.favorite_border),
+                      child: const Icon(Icons.favorite_border),
                       radius: screenHeight *0.03,
-                      backgroundColor: Color(0xD9D6EBF9),
+                      backgroundColor: const Color(0xD9D6EBF9),
                     ),
                     SizedBox(
                       width: screenHeight * 0.02,
@@ -112,9 +113,9 @@ class CardDesign extends StatelessWidget {
                     GestureDetector(
                       onTap: ()=>_deleteNote(note.id),
                       child: CircleAvatar(
-                        child: Icon(Icons.delete_outline_rounded),
+                        child: const Icon(Icons.delete_outline_rounded),
                         radius: screenHeight *0.03,
-                        backgroundColor: Color(0xD9D6EBF9),
+                        backgroundColor: const Color(0xD9D6EBF9),
                       ),
                     ),
                   ],
