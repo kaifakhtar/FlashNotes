@@ -13,9 +13,10 @@ class PriorityChip extends StatelessWidget {
   Widget build(BuildContext context) {
     var screenHeight = (MediaQuery.of(context).size.height -
         MediaQuery.of(context).padding.top);
+    var width = (MediaQuery.of(context).size.width);
     return Container(
       alignment: Alignment.center,
-      width: screenHeight * 0.14,
+      width: width * 0.23,
       decoration: BoxDecoration(
           color: chipColor,
           border: Border.all(width: 2),
