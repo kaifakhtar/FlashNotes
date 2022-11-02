@@ -1,13 +1,10 @@
-import 'dart:ffi';
+
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
-import 'package:kins_c/widgets/chips_importance_row.dart';
-import 'package:kins_c/widgets/desc_card_design.dart';
+
 import '../modals/note.dart';
-import '../widgets/add_button.dart';
 import './query_screen.dart';
 import '../widgets/priority_chip.dart';
 class InsertNoteScreen extends StatefulWidget {

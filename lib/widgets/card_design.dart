@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../modals/note.dart';
-import './chips_importance_row.dart';
+
 
 class CardDesign extends StatelessWidget {
   Note note;
