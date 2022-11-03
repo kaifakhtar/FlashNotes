@@ -99,8 +99,8 @@ class _NotesDisplayScreenState extends State<NotesDisplayScreen> {
       return const Color(0xffecb6fd);
     }
     else if(priority==2){
-      return const Color(0xffe9f0b9);
+      return const Color(0xffffd699);
     }
-    return const Color(0xFF8fad86);
+    return const Color(0xFFd9ffb3);
   }
 }

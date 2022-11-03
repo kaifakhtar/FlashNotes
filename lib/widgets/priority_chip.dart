@@ -28,7 +28,7 @@ class PriorityChip extends StatelessWidget {
             horizontal: screenHeight * 0.01),
         child: Text(
           ChipText,
-          style: GoogleFonts.montserrat(color: Colors.black),
+          style: GoogleFonts.montserrat(color: Colors.black,fontWeight: FontWeight.w500),
         ),
       ),
     );

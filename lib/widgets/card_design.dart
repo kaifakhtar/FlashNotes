@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../modals/note.dart';
+import '../screens/edit_note_screen.dart';
 
 
 class CardDesign extends StatelessWidget {
@@ -23,7 +24,11 @@ class CardDesign extends StatelessWidget {
 
       width: double.infinity,
       child: InkWell(
-        onTap: () {},
+        onTap: () {
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => const EditNoteScreen()));
+          //move to edit screen
+        },
         child: Card(
           elevation: 0,
           margin:  EdgeInsets.only(bottom: screenHeight*0.009),

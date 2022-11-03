@@ -26,7 +26,7 @@ class _InsertNoteScreenState extends State<InsertNoteScreen> {
         MediaQuery.of(context).padding.top);
     var width = (MediaQuery.of(context).size.width);
     return Scaffold(
-      backgroundColor: const Color(0xffffffff),
+      backgroundColor:(selectedPriority==1)?const Color(0xffecb6fd):(selectedPriority==2)? const Color(0xffffebcc):const Color(0xFFd9ffb3),
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.symmetric(
@@ -54,7 +54,7 @@ class _InsertNoteScreenState extends State<InsertNoteScreen> {
                   GestureDetector(
                     onTap: (){setState((){selectedPriority=1;});},
                       child: PriorityChip(selectedPriority: selectedPriority, ChipText: "Important",chipColor:
-                      selectedPriority==1 ?const Color(0xFFf58c87) : const Color(0x00FFFFFF),)),
+                      selectedPriority==1 ?const Color(0xFFdb4dff) : const Color(0x00FFFFFF),)),
 
 
                   SizedBox(
@@ -64,7 +64,7 @@ class _InsertNoteScreenState extends State<InsertNoteScreen> {
                   GestureDetector(
                       onTap: (){setState((){selectedPriority=2;});},
                       child: PriorityChip(selectedPriority: selectedPriority, ChipText: "Moderate",
-                         chipColor: selectedPriority==2 ?const Color(0xFFf5fab1) : const Color(0x00FFFFFF))),
+                         chipColor: selectedPriority==2 ?const Color(0xFFffbf80) : const Color(0x00FFFFFF))),
                   SizedBox(
                     width: width * 0.023,
                   ),
@@ -84,7 +84,7 @@ class _InsertNoteScreenState extends State<InsertNoteScreen> {
                 decoration: InputDecoration(
                     border: InputBorder.none,
                     fillColor: Colors.pink[50],
-                    hintText: "Your awesome note here..",
+                    hintText: "Write your awesome note here..",
                     hintStyle: GoogleFonts.sourceSansPro(fontSize: 25)),
                 cursorColor: const Color(0xFFea59f7),
                 style: GoogleFonts.lato(fontSize: 25, color: const Color(0xff3d485d)),
