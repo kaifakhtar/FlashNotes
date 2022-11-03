@@ -45,7 +45,7 @@ class CardDesign extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    note.title.isEmpty ? "No title" : note.title,
+                    note.title.isEmpty ? "Untitled" : note.title,
                     style: GoogleFonts.montserrat(
                         fontSize: screenHeight * 0.046,
                         fontWeight: FontWeight.w400),
@@ -95,8 +95,7 @@ class CardDesign extends StatelessWidget {
               Positioned(
                 top: screenHeight * 0.48,
                 //left: screenHeight * 0.05,
-                //left: 0,
-                right: 0,
+                left: 0,
                 child: Row(
                   children: [
                     CircleAvatar(

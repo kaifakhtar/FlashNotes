@@ -1,6 +1,7 @@
-import 'dart:math';
 
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:kins_c/screens/insert_note_screen.dart';
 import 'package:kins_c/widgets/card_design.dart';
@@ -16,10 +17,7 @@ class NotesDisplayScreen extends StatefulWidget {
 
 class _NotesDisplayScreenState extends State<NotesDisplayScreen> {
   List<Note>? notes;
-
-
-
-
+  bool isFabVisible =false;
 
   void initNotes() async {
     QueryMiddle queryMiddle = new QueryMiddle();
@@ -41,64 +39,74 @@ class _NotesDisplayScreenState extends State<NotesDisplayScreen> {
     var screenHeight = (MediaQuery.of(context).size.height -
         MediaQuery.of(context).padding.top);
 
-    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-      systemNavigationBarColor: Colors.grey,
-    ));
+
+
     initNotes();
     return Scaffold(
-      backgroundColor: Color(0xFFfcfcfc),
+        backgroundColor: const Color(0xFFfcfcfc),
         body: SafeArea(
           child: Padding(
-            padding:  EdgeInsets.only(top: screenHeight*0.01),
+            padding: EdgeInsets.only(top: screenHeight * 0.01),
             child: Column(
               children: [
-                SizedBox(height: screenHeight*0.016,),
+                SizedBox(
+                  height: screenHeight * 0.016,
+                ),
                 const MyAppbar(),
-                 SizedBox(
-                  height: screenHeight*0.018,
+                SizedBox(
+                  height: screenHeight * 0.018,
                 ),
                 (notes == null) || (notes!.isEmpty)
                     ? const NoNoteBanner()
                     : Expanded(
                         child: Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                          child: ListView.builder(
-                              itemCount: notes!.length,
-                              itemBuilder: (context, index) {
-
-                                return CardDesign(notes![index], _deleteNote,getChipColor(notes![index].priority));
-                              }),
+                          child: NotificationListener<UserScrollNotification>(
+                            onNotification: (notification){
+                              if(notification.direction==ScrollDirection.forward){
+                                if(!isFabVisible)setState(()=>isFabVisible=true);
+                              }
+                              if(notification.direction==ScrollDirection.reverse){
+                               if(isFabVisible) setState(()=>isFabVisible=false);
+                              }
+                              return true;
+                            },
+                            child: ListView.builder(
+                                itemCount: notes!.length,
+                                itemBuilder: (context, index) {
+                                  return CardDesign(notes![index], _deleteNote,
+                                      getChipColor(notes![index].priority));
+                                }),
+                          ),
                         ),
                       ),
               ],
             ),
           ),
         ),
-        floatingActionButton:  FloatingActionButton(
-            elevation: screenHeight*0.02,
-            onPressed: () async {
-              bool? result = await Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => InsertNoteScreen()));
-              if (result == true) {
-                updateNoteDisplayScreen();
-              }
-            },
-            child: const Icon(Icons.add),
-          ),
 
-        floatingActionButtonLocation:
-            FloatingActionButtonLocation.centerFloat);
+        floatingActionButton: isFabVisible? FloatingActionButton(
+          elevation: screenHeight * 0.02,
+          onPressed: () async {
+            bool? result = await Navigator.push(context,
+                MaterialPageRoute(builder: (context) => InsertNoteScreen()));
+            if (result == true) {
+              updateNoteDisplayScreen();
+            }
+          },
+          child: Icon(Icons.add),
+        ):null,
+        );
   }
 
   void updateNoteDisplayScreen() {
     setState(() {});
   }
-  
-  Color getChipColor(priority){
-    if(priority==1){
+
+  Color getChipColor(priority) {
+    if (priority == 1) {
       return const Color(0xffecb6fd);
-    }
-    else if(priority==2){
+    } else if (priority == 2) {
       return const Color(0xffffd699);
     }
     return const Color(0xFFd9ffb3);
