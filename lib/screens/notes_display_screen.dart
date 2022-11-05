@@ -17,7 +17,7 @@ class NotesDisplayScreen extends StatefulWidget {
 
 class _NotesDisplayScreenState extends State<NotesDisplayScreen> {
   List<Note>? notes;
-  bool isFabVisible =false;
+  bool isFabVisible =true;
 
   void initNotes() async {
     QueryMiddle queryMiddle = new QueryMiddle();
