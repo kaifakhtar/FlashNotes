@@ -15,13 +15,10 @@ class QueryMiddle {
     print("insert return is ${i}");
   }
 
-  // void _update() async{
-  //   Map<String,dynamic> updatedRow ={
-  //     DatabaseHelper.columnId:1,
-  //     DatabaseHelper.columnName:"shah bro"
-  //   };
-  //   await dbhelper.update(updatedRow);
-  // }
+  void update(Map<String, dynamic> noteMap) async{
+
+    await dbhelper.update(noteMap);
+  }
   //
   Future<List<Map<String, dynamic>>?> queryAll() async {
     List<Map<String, dynamic>>? querylist =await dbhelper.queryAll();

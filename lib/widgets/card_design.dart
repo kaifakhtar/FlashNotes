@@ -26,7 +26,7 @@ class CardDesign extends StatelessWidget {
       child: InkWell(
         onTap: () {
           Navigator.push(context,
-              MaterialPageRoute(builder: (context) => const EditNoteScreen()));
+              MaterialPageRoute(builder: (context) =>  EditNoteScreen(title: note.title,desc: note.description,selectedPriority: note.priority,date: note.date,id: note.id!,)));
           //move to edit screen
         },
         child: Card(
