@@ -1,6 +1,6 @@
-# kins_c
+# Flash Notes
 
-A new Flutter project.
+An app for making quick and handy notes that can be used as flash cards for revision.
 
 ## Getting Started
 
